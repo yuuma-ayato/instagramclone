@@ -1,0 +1,29 @@
+li{
+    list-style:none;
+}
+ul{
+    padding:0;
+}
+.header{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    background-color:#00aced ;
+    color: #fff;
+    padding:1% 2%;
+}
+
+.contents li{
+    background-color:#c7d1f6;
+    color:#000000;
+    padding:5% 5%;
+    box-sizing: border-box;
+    border: solid 1px #fff;
+}
+.topic li{
+    margin:1%;
+}
+.container{
+    margin-top:20px;
+    padding-bottom: 100px;
+}

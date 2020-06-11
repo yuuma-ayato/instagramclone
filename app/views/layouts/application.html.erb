@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagramclone</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <nav class="menu">
+    <ul class="row">
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <% if logged_in? %>
+      <li class="col-md-6"><%= link_to "Profile", user_path(current_user.id) %></li>
+      <li class="col-md-6"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+      <% else %>
+      <li class="col-md-6"><%= link_to "Sign up", new_user_path %>
+        <br>
+        <a>（初めての方はこちら）</a>
+      </li>
+      <li class="col-md-6"><%= link_to "Login", new_session_path %>
+        <br>
+        <a>(Sign upがお済みの方はLoginしてください)</a>
+      </li>
+    </ul>
+    <% end %>
+  </nav>
+  <%= yield %>
+  <footer>
+    <p>運営会社mame株式会社</p>
+    <p>© 2020-2021 Copyright mame Corp.</p>
+  </footer>
+</body>
+</html>

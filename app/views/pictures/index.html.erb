@@ -1,0 +1,29 @@
+<header class="header">投稿一覧</header>
+<p><%= notice %></p>
+
+<div class="topic">
+  <ul>
+    <li class="col-md-12"><%= link_to '新しく投稿する', new_picture_path %></li>
+  </ul>
+</div>
+
+  <% @pictures.each do |picture| %>
+  <article>
+    <div class="contents">
+      <ul>
+        <li class="col-sm-12 col-md-offset-4 col-md-4">
+          <p>ータイトルー</p>
+          <h4><%= picture.title %></h4>
+          <p>ー内容ー</p>
+        <p><%= picture.content %></p>
+        <%= image_tag(picture.image.url) %>
+        <p><%= picture.user.name %></p>
+        <br>
+        <p><%= link_to '詳細を確認する', picture_path(picture.id) %></p>
+        <p><%= link_to "編集する", edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか？' } %></p>
+        <p><%= link_to '削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
+      </li>
+      </ul>
+    </div>
+    <% end %>
+  </article>
