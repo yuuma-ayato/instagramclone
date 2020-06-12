@@ -1,5 +1,20 @@
+.show_image a {
+  text-align:center;
+}
 .menu li {
-    text-align:center;
+  text-align:center;
+}
+.user {
+  text-align: center;
+}
+.user tr{
+  height: 4rem;
+}
+.user th{
+  text-align: right;
+}
+.user td{
+  padding-left: 1rem;
 }
 footer {
   width: 100%;

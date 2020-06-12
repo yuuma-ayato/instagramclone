@@ -1,26 +1,45 @@
 <h1>Sign up</h1>
 <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
 
-    <ul>
+  <ul>
     <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+    <li><%= message %></li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
 <% end %>
 
+<div class="user">
 <%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Create my account" %>
-<% end %>
+<table>
+  <tr>
+    <th><%= f.label :name %></th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :email %></th>
+    <td><%= f.email_field :email %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :password %></th>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :password_confirmation %></th>
+    <td><%= f.password_field :password_confirmation %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :image %></th>
+  <td><%= image_tag(@user.image.url) if @user.image && @user.image.url %></td>
+  </tr>
+  <th><%= f.file_field :image %></th>
+  <td><%= f.hidden_field :image_cache %></td>
+  </table>
 
-<%= link_to "投稿一覧画面にもどる", pictures_path %>
+  <%= f.submit "Create my account" %>
+  <% end %>
+
+  <%= link_to "投稿一覧画面にもどる", pictures_path %>
+</div>

@@ -16,7 +16,7 @@
           <h4><%= picture.title %></h4>
           <p>ー内容ー</p>
         <p><%= picture.content %></p>
-        <%= image_tag(picture.image.url) %>
+        <p><%= image_tag(picture.image.url) %></p>
         <p><%= picture.user.name %></p>
         <br>
         <p><%= link_to '詳細を確認する', picture_path(picture.id) %></p>

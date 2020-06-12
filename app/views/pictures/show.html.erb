@@ -2,8 +2,7 @@
 <p>タイトル: <%= @picture.title %></p>
 <p id="notice"><%= notice %></p>
 <p>内容: <%= @picture.content %></p>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @picture.image.url %>
-</p>
+<p class="show_image"><strong>Image:</strong></p>
+<p><%= image_tag @picture.image.url %></p>
+<br>
 <%= link_to "投稿一覧画面にもどる", pictures_path %>
