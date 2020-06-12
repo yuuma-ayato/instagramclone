@@ -9,6 +9,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+  <header class="header">InstagramClone</header>
+  <div class="container">
   <nav class="menu">
     <ul class="row">
       <% flash.each do |key, value| %>
@@ -30,9 +32,6 @@
     <% end %>
   </nav>
   <%= yield %>
-  <footer>
-    <p>運営会社mame株式会社</p>
-    <p>© 2020-2021 Copyright mame Corp.</p>
-  </footer>
+  </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1>Edit User</h1>
 <% if @user.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
@@ -12,7 +12,15 @@
 <% end %>
 
 <div class="user">
-<%= form_with(model: @user, local: true) do |f| %>
+  <%= form_with(model: @user, local: true) do |f| %>
+  <ul>
+    <li><%= f.label :image %></li>
+    <li class="image"><%= image_tag(@user.image.url) if @user.image && @user.image.url %></li>
+  </ul>
+  <ul>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </ul>
   <ul>
     <li><%= f.label :name %></li>
     <li><%= f.text_field :name %></li>
@@ -29,12 +37,6 @@
     <li><%= f.label :password_confirmation %></li>
     <li><%= f.password_field :password_confirmation %></li>
   </ul>
-  <ul>
-    <li><%= f.label :image %></li>
-  <li><%= image_tag(@user.image.url) if @user.image && @user.image.url %></li>
-  </ul>
-  <li><%= f.file_field :image %></li>
-  <li><%= f.hidden_field :image_cache %></li>
 
   <%= f.submit "Create my account" %>
   <% end %>

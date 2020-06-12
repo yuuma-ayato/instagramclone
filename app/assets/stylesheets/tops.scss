@@ -1,31 +1,13 @@
-.show_image a {
-  text-align:center;
+.header{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    background-color:#6f00ed ;
+    color: #fff;
+    padding:1% 2%;
 }
 .menu li {
-  text-align:center;
-}
-.user {
-  text-align: center;
-}
-.user tr{
-  height: 4rem;
-}
-.user th{
-  text-align: right;
-}
-.user td{
-  padding-left: 1rem;
-}
-footer {
-  width: 100%;
-  background-color:#00aced;
-  padding: 20px 0 10px 0;
-  color: #fff;
-  margin: auto;
-  padding-bottom: 10px;
-  font-size: 12px;
-  position: absolute;
-  bottom: 0;
+    text-align:center;
 }
 html {
   position: relative;
