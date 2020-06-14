@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
+
 <body>
   <header class="header">InstagramClone</header>
   <div class="container">
@@ -29,7 +30,9 @@
     </ul>
     <% end %>
   </nav>
+
   <%= yield %>
+  
   </div>
 </body>
 </html>
