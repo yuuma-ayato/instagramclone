@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:update, :show, :edit]
 
   def new
     @user = User.new
@@ -14,11 +15,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
       if @user.update(user_params)
         redirect_to user_path, notice: "編集しました！"
       else
@@ -27,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def favorite_index
@@ -42,4 +40,9 @@ class UsersController < ApplicationController
                                  :password_confirmation,
                                  :image, :image_cache)
     end
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
   end

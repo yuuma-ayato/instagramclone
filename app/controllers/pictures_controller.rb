@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @pictures = Picture.all
@@ -60,4 +61,12 @@ class PicturesController < ApplicationController
   def set_picture
     @picture = Picture.find(params[:id])
   end
+
+  def check_user
+      unless current_user.id == @picture.user_id
+        flash[:notice] = "編集権限がありません"
+        redirect_to pictures_path
+      end
+  end
+
 end
