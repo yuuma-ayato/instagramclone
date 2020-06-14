@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def favorite_index
+    @favorite = current_user.favorite_pictures
+  end
+
 
   private
 

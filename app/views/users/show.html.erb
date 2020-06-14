@@ -1,9 +1,17 @@
+<% if logged_in? %>
 <h1><%= @user.name %>のページ</h1>
+<% else %>
+<h1>ユーザー：<%= @user.name %>を登録しました。</h1>
+<h2><%= link_to "ログイン", new_session_path %>してください</h2>
+<% end %>
 <br>
 <p class="show_image"><strong>Image:</strong></p>
 <p><%= image_tag @user.image.url %></p>
 <br>
 <p>メールアドレス: <%= @user.email %></p>
+<br>
 <%= link_to "ユーザー情報を編集する", edit_user_path(@user.id) %>
+<br>
+<%= link_to "お気に入り一覧", favorite_index_user_path(@user.id) %>
 <br>
 <%= link_to "投稿一覧画面にもどる", pictures_path(@user.id) %>
