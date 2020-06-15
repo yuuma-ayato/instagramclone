@@ -1,11 +1,6 @@
 <h2>投稿一覧</h2>
 
-<% if logged_in? %>
-  <h3><%= link_to '新しく投稿する', new_picture_path %></h3>
-<% else %>
-  <h3><%= link_to 'ログインしてください', new_session_path %></h3>
-  初めての方は<%= link_to "Sign up", new_user_path %>をお願いします
-<% end %>
+<h3><%= link_to '新しく投稿する', new_picture_path %></h3>
 
 <% @pictures.each do |picture| %>
 <div class="contents">

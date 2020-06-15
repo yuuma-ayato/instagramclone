@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :check_login
   before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
@@ -60,6 +61,13 @@ class PicturesController < ApplicationController
 
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def check_login
+      unless logged_in?
+        flash[:notice] = "ログインしてください"
+        redirect_to new_session_path
+      end
   end
 
   def check_user

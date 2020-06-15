@@ -1,3 +1,6 @@
+<h4>初めての方は<%= link_to "Sign up", new_user_path %>をお願いします</h4>
+
+
 <h1>Log in</h1>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
   <%= f.label :email %>
